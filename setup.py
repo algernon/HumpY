@@ -19,7 +19,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="humpy",
-    version="0.1.0",
+    version="0.1.1",
     install_requires = ['hy>=0.10'],
     packages=['humpy'],
     package_data={
