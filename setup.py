@@ -21,7 +21,7 @@ setup(
     name="humpy",
     version="0.1.0",
     install_requires = ['hy>=0.10'],
-    packages=find_packages(exclude=['tests']),
+    packages=['humpy'],
     package_data={
         'humpy': ['*.hy'],
     },
