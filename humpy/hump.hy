@@ -19,8 +19,8 @@
 (eval-and-compile
  (defn camelize [s]
    (let [[parts (.split s "_")]
-         [caps (map (fn [x] (.title x)) (rest parts))]]
-     (.join "" (+ [(first parts)] caps))))
+         [caps (list (map (fn [x] (.title x)) (rest parts)))]]
+     (.join "" (+ [(first parts)] caps)))))
 
- (defreader @ [s]
-   (HySymbol (camelize s))))
+(defreader @ [s]
+  (HySymbol (camelize s)))

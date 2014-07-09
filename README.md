@@ -17,7 +17,7 @@ Example
 -------
 
 ```hy
-(require humpy)
+(require humpy.hump)
 (import [some.library [camelCase FunctionNames]])
 
 #@camel-case
