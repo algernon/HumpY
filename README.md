@@ -2,6 +2,8 @@ HumpY
 =====
 
 [![Build Status](https://travis-ci.org/algernon/HumpY.png?branch=master)](https://travis-ci.org/algernon/HumpY)
+[![Downloads](https://pypip.in/d/humpy/badge.png)](https://crate.io/packages/humpy)
+[![Version](https://pypip.in/v/humpy/badge.png)](https://crate.io/packages/humpy)
 
 Ever wanted to use a library in [Hy][hylang], but the library used
 ugly CamelCase? Ever wanted to write a wrapper, that converts that
