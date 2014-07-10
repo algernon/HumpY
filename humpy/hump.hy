@@ -14,13 +14,18 @@
 ;; You should have received a copy of the GNU Lesser General Public
 ;; License along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-(import [hy [HySymbol]])
+(import [hy [HySymbol HyKeyword]])
 
 (eval-and-compile
  (defn camelize [s]
    (let [[parts (.split s "_")]
          [caps (list (map (fn [x] (.title x)) (rest parts)))]]
-     (.join "" (+ [(first parts)] caps)))))
+     (.join "" (+ [(first parts)] caps))))
+
+ (defn camelize-full [s]
+   (.replace (.title s) "-" "")))
 
 (defreader @ [s]
-  (HySymbol (camelize s)))
+  (if (= (type s) HyKeyword)
+    (HySymbol (camelize-full (rest (rest s))))
+    (HySymbol (camelize s))))

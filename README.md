@@ -27,6 +27,9 @@ Example
 
 #@Function-names
 ;; => <function FunctionNames at 0xdeadbeef>
+
+#@:function-names
+;; => <function FunctionNames at 0xdeadbeef>
 ```
 
 License

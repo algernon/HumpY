@@ -21,3 +21,6 @@
 
 (defn testHumpy []
   (assert (= #@test-humpy testHumpy)))
+
+(defn TestKeywordHumps []
+  (assert (= #@:test-keyword-humps TestKeywordHumps)))
