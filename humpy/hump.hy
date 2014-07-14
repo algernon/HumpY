@@ -17,12 +17,14 @@
 (import [hy [HySymbol HyKeyword]])
 
 (defreader @ [s]
-  (let [[camelize-full (fn [s]
-                         (.replace (.title s) "-" ""))]
+  (let [[stringize (fn [l] (.join "" l))]
+        [camelize-all (fn [sep s]
+                        (.replace (-> s stringize .title) sep ""))]
+        [camelize-full (fn [s]
+                         (camelize-all "-" s))]
         [camelize (fn [s]
-                    (let [[parts (.split s "_")]
-                          [caps (list (map (fn [x] (.title x)) (rest parts)))]]
-                      (.join "" (+ [(first parts)] caps))))]]
+                    (+ (-> s first)
+                       (-> (camelize-all "_" s) rest stringize)))]]
     (if (= (type s) HyKeyword)
-      (HySymbol (camelize-full (rest (rest s))))
+      (HySymbol (camelize-full (stringize (drop 2 s))))
       (HySymbol (camelize s)))))
