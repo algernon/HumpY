@@ -1,5 +1,12 @@
 #+STARTUP: indent showall                       -*- org -*-
 
+* 0.1.2 - <2014-07-14 Mon>
+
+** Bugfix: Compatibility with Hy master
+
+This release fixes the reader macro so that it will work with Hy
+master, when running in a python3+ environment.
+
 * 0.1.1 - <2014-07-09 Wed>
 
 ** Bugfix: Python 3+ compatibility
