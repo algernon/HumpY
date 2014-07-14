@@ -29,3 +29,5 @@
   (if (= (type s) HyKeyword)
     (HySymbol (camelize-full (rest (rest s))))
     (HySymbol (camelize s))))
+
+(def __all__ [])
