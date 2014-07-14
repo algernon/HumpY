@@ -16,18 +16,13 @@
 
 (import [hy [HySymbol HyKeyword]])
 
-(eval-and-compile
- (defn camelize [s]
-   (let [[parts (.split s "_")]
-         [caps (list (map (fn [x] (.title x)) (rest parts)))]]
-     (.join "" (+ [(first parts)] caps))))
-
- (defn camelize-full [s]
-   (.replace (.title s) "-" "")))
-
 (defreader @ [s]
-  (if (= (type s) HyKeyword)
-    (HySymbol (camelize-full (rest (rest s))))
-    (HySymbol (camelize s))))
-
-(def __all__ [])
+  (let [[camelize-full (fn [s]
+                         (.replace (.title s) "-" ""))]
+        [camelize (fn [s]
+                    (let [[parts (.split s "_")]
+                          [caps (list (map (fn [x] (.title x)) (rest parts)))]]
+                      (.join "" (+ [(first parts)] caps))))]]
+    (if (= (type s) HyKeyword)
+      (HySymbol (camelize-full (rest (rest s))))
+      (HySymbol (camelize s)))))
